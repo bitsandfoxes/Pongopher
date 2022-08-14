@@ -125,7 +125,7 @@ func (g *Game) HandleBall() {
 	ballVector := ballDirection.Multiply(ball.speed * deltaTime)
 	ball.SetPosition(ball.position.Add(ballVector))
 
-	if ball.bounds.right > gameBoundsRight || ball.bounds.left < gameBoundsLeft {
+	if ball.position.x > gameBoundsRight || ball.position.x < gameBoundsLeft {
 		g.currentState = gameOver
 		return
 	}
